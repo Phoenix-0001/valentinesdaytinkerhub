@@ -17,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background */
+            background-color: rgba(0, 0, 0, 0.9); /* Slightly darker background */
         }
 
         #proposal-container {
@@ -43,7 +43,7 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            font-family: 'La Belle Aurore', cursive;
+            font-family: '', cursive;
             color: black; /* Black font color */
             transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
@@ -57,34 +57,9 @@
         #no-button {
             background-color: #ff1a1a;
             position: relative;
+            transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
         }
 
-        #no-button:hover {
-            animation: moveAround 0.5s infinite linear; /* Faster animation */
-        }
-
-        @keyframes moveAround {
-            0% {
-                left: 0;
-                top: 0;
-            }
-            25% {
-                left: 120px;
-                top: 120px;
-            }
-            50% {
-                left: 0;
-                top: 0;
-            }
-            75% {
-                left: -120px;
-                top: -120px;
-            }
-            100% {
-                left: 0;
-                top: 0;
-            }
-        }
     </style>
 </head>
 <body>
@@ -93,12 +68,18 @@
         <p>Are you made of copper and tellurium? Because you're Cu-Te!</p>
         <div id="buttons-container">
             <button id="yes-button" onclick="alert('You said YES! 🥰')">Yes</button>
-            <button id="no-button" onclick="alert('You can't escape my love! 😄')">No</button>
+            <button id="no-button" onclick="alert('You can't escape my love! 😄')" onmousemove="moveButton(event)">No</button>
         </div>
     </div>
 
     <script>
-        // JavaScript can be added here for additional functionality if needed
+        function moveButton(event) {
+            const button = document.getElementById('no-button');
+            const offsetX = event.clientX - button.clientWidth / 2;
+            const offsetY = event.clientY - button.clientHeight / 2;
+            button.style.left = offsetX + 'px';
+            button.style.top = offsetY + 'px';
+        }
     </script>
 </body>
 </html>
