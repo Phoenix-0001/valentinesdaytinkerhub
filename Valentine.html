@@ -60,7 +60,7 @@
         }
 
         #no-button:hover {
-            animation: moveAround 3s infinite linear;
+            animation: moveAround 0.5s infinite linear; /* Faster animation */
         }
 
         @keyframes moveAround {
@@ -69,16 +69,16 @@
                 top: 0;
             }
             25% {
-                left: 50px;
-                top: 50px;
+                left: 120px;
+                top: 120px;
             }
             50% {
                 left: 0;
                 top: 0;
             }
             75% {
-                left: -50px;
-                top: -50px;
+                left: -120px;
+                top: -120px;
             }
             100% {
                 left: 0;
